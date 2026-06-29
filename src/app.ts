@@ -1,10 +1,12 @@
 import express from "express";
 import taskRouter from "./routes/tasks";
+import healthRouter from "./routes/health";
 import { errorHandler } from "./middleware/error";
 
 const app = express();
 app.use(express.json());
 
+app.use(healthRouter);
 app.use("/api/tasks", taskRouter);
 app.use(errorHandler);
 
